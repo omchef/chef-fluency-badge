@@ -5,9 +5,9 @@
 # Copyright:: 2017, The Authors, All Rights Reserved.
 #
 
-if node['platoform_family'] == "rhel"
+if node['platform_family'] == "rhel"
 	package = "httpd"
-elseif node['platform_family'] == "debian"
+elsif node['platform_family'] == "debian"
 	package = "apache2" 
 end 
 
@@ -16,7 +16,7 @@ package 'apache2' do
 	action :install
 end
 
-service 'apache' do 
+service 'apache2' do 
 	service_name 'httpd'
 	action [:start, :enable]
 end
